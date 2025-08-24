@@ -44,12 +44,6 @@ The application supports **5 languages** for a better user experience:
 
 ---
 
-## 📸 Screenshots (Optional)
-> *(You can add screenshots of your UI here for better presentation)*  
-Example:  
-`![Dashboard Screenshot](screenshot.png)`
-
----
 
 ## 🚀 How to Run
 1. Clone this repository  
