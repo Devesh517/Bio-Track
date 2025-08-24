@@ -1,5 +1,6 @@
 # 🩺 Bio-Track – Smart Health Monitoring System
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 
 > A smart health monitoring project developed using **Java (Eclipse), MySQL, and XAMPP**.  
 > Built during the **Identity Exhibition** with my teammate **Priyanshu** 🎉.
