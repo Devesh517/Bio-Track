@@ -50,4 +50,4 @@ The application supports **5 languages** for a better user experience:
 ## 🚀 How to Run
 1. Clone this repository  
    ```bash
-   git clone https://github.com/yourusername/Bio-Track.git
+   git clone https://github.com/Devesh517/Bio-Track.git
