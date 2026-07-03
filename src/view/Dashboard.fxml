@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DashboardController"
+            styleClass="app-root">
+
+    <top>
+        <VBox spacing="4" styleClass="header-bar">
+            <padding><Insets top="16" right="24" bottom="16" left="24"/></padding>
+            <Label text="Dashboard" styleClass="page-title"/>
+            <Label fx:id="welcomeLabel" text="Welcome back" styleClass="page-subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+            <VBox spacing="18">
+                <padding><Insets top="16" right="24" bottom="24" left="24"/></padding>
+
+                <!-- Vital cards -->
+                <HBox spacing="14">
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Heart Rate" styleClass="stat-label"/>
+                        <Label fx:id="heartRateValue" text="-" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Blood Pressure" styleClass="stat-label"/>
+                        <Label fx:id="bpValue" text="-" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Blood Sugar" styleClass="stat-label"/>
+                        <Label fx:id="sugarValue" text="-" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="SpO2" styleClass="stat-label"/>
+                        <Label fx:id="spo2Value" text="-" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Weight" styleClass="stat-label"/>
+                        <Label fx:id="weightValue" text="-" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="BMI" styleClass="stat-label"/>
+                        <Label fx:id="bmiValue" text="-" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Overall status:" styleClass="field-label"/>
+                    <Label fx:id="overallStatusValue" text="-" styleClass="stat-badge"/>
+                </HBox>
+
+                <!-- Chart + recent records -->
+                <HBox spacing="18">
+                    <VBox styleClass="panel-card" HBox.hgrow="ALWAYS" prefWidth="600">
+                        <Label text="Heart Rate - Last 7 Days" styleClass="panel-title"/>
+                        <LineChart fx:id="heartRateChart" legendVisible="false" prefHeight="260">
+                            <xAxis><CategoryAxis label="Date"/></xAxis>
+                            <yAxis><NumberAxis label="bpm"/></yAxis>
+                        </LineChart>
+                    </VBox>
+
+                    <VBox styleClass="panel-card" prefWidth="320" spacing="8">
+                        <Label text="Recent Records" styleClass="panel-title"/>
+                        <ListView fx:id="recentRecordsList" prefHeight="260"/>
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="panel-card" spacing="8">
+                    <Label text="Recent Documents" styleClass="panel-title"/>
+                    <ListView fx:id="recentDocumentsList" prefHeight="140"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

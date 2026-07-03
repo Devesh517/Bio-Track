@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.ChatbotController"
+            styleClass="app-root">
+
+    <top>
+        <VBox styleClass="header-bar">
+            <padding><Insets top="16" right="24" bottom="16" left="24"/></padding>
+            <Label text="BioTrack Assistant" styleClass="page-title"/>
+            <Label text="Ask about your vitals, trends, or what to do next" styleClass="page-subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox styleClass="panel-card" spacing="10">
+            <padding><Insets top="16" right="24" bottom="24" left="24"/></padding>
+            <ListView fx:id="chatListView" VBox.vgrow="ALWAYS"/>
+            <Label fx:id="statusLabel"/>
+            <HBox spacing="8">
+                <TextField fx:id="messageField" promptText="Ask BioTrack Assistant..." HBox.hgrow="ALWAYS" onAction="#handleSend"/>
+                <Button text="Send" onAction="#handleSend" styleClass="primary-button"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

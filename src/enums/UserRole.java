@@ -1,4 +1,5 @@
 package enums;
 
-public class UserRole {
+public enum UserRole {
+    PATIENT, ADMIN, DOCTOR
 }

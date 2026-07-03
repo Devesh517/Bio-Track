@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="controller.LoginController"
+           styleClass="login-root">
+    <VBox alignment="CENTER" spacing="16" maxWidth="360" styleClass="login-card">
+        <padding><Insets top="36" right="36" bottom="36" left="36"/></padding>
+
+        <Label text="BioTrack" styleClass="login-title"/>
+        <Label text="Your Health, Your Data" styleClass="login-subtitle"/>
+
+        <VBox spacing="6">
+            <Label text="User ID or Email" styleClass="field-label"/>
+            <TextField fx:id="emailOrIdField" promptText="e.g. BT1025 or you@example.com"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="Password"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+        <Button text="Login" defaultButton="true" onAction="#handleLogin" styleClass="primary-button" maxWidth="Infinity"/>
+    </VBox>
+</StackPane>

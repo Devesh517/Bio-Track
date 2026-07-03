@@ -1,25 +1,31 @@
 package application;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import utils.FileUtil;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
+        FileUtil.ensureDirectoriesExist();
 
-        Label label = new Label("JavaFX Setup Successful");
-
-        Scene scene = new Scene(label, 800, 600);
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
+        Scene scene = new Scene(root, 420, 520);
+        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
 
         stage.setScene(scene);
-        stage.setTitle("BioTrack");
+        stage.setTitle("BioTrack - Login");
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
