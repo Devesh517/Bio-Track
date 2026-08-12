@@ -1,0 +1,32 @@
+/*
+ * dark-theme.css - Overrides the palette variables defined in theme.css's
+ * .root selector. Because JavaFX resolves looked-up colors (-primary, -bg,
+ * etc.) from the LAST stylesheet that defines them, ThemeManager simply
+ * appends this file after theme.css when dark mode is active (and removes
+ * it for light mode) - every existing screen and CSS rule that already
+ * references -primary/-surface/-bg/etc. picks up the dark palette for free,
+ * with no changes needed to components.css, dashboard.css, or login.css.
+ */
+
+.root {
+    -primary: #4f7cd1;
+    -primary-hover: #6f97e0;
+    -primary-light: #1e2a44;
+    -accent: #6f97e0;
+    -text-dark: #e7ebf3;
+    -text-muted: #9aa6bd;
+    -border: #2c3550;
+    -surface: #1a2036;
+    -bg: #10131f;
+    -success: #4ade80;
+    -warning: #fbbf24;
+    -error: #f87171;
+    -error-bg: #3a1f1f;
+
+    -fx-background-color: -bg;
+    -fx-text-fill: -text-dark;
+}
+
+.view-card {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
+}

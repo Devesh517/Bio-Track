@@ -1,0 +1,40 @@
+/*
+ * dashboard.css - The sidebar navigation and dashboard chrome.
+ */
+
+.sidebar {
+    -fx-background-color: -primary;
+}
+
+.sidebar-user {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+.sidebar-user-sub {
+    -fx-text-fill: derive(-primary, 60%);
+    -fx-font-size: 11px;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d7e3f4;
+    -fx-alignment: center-left;
+    -fx-font-size: 13px;
+    -fx-padding: 9 10 9 10;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+.nav-button:hover {
+    -fx-background-color: -primary-hover;
+    -fx-text-fill: white;
+}
+.nav-button:focused {
+    -fx-border-color: derive(-primary, 60%);
+    -fx-border-width: 1;
+    -fx-border-radius: 4px;
+}
+
+.separator .line {
+    -fx-border-color: derive(-primary, 30%) transparent transparent transparent;
+}

@@ -1,0 +1,220 @@
+/*
+ * components.css - Reusable control styling shared across every screen:
+ * buttons, text inputs, combo boxes, tables/lists, and small "tile" cards.
+ */
+
+/* ---------- Buttons ---------- */
+
+.button {
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+
+.primary-button {
+    -fx-background-color: -primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 9 18 9 18;
+    -fx-background-radius: 4px;
+}
+.primary-button:hover {
+    -fx-background-color: -primary-hover;
+}
+.primary-button:pressed {
+    -fx-background-color: derive(-primary, -15%);
+}
+.primary-button:focused {
+    -fx-effect: dropshadow(gaussian, rgba(42,80,144,0.45), 6, 0.4, 0, 0);
+}
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -primary;
+    -fx-border-color: -primary;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8 17 8 17;
+}
+.secondary-button:hover {
+    -fx-background-color: -primary-light;
+}
+
+.danger-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -error;
+    -fx-border-color: -error;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8 17 8 17;
+}
+.danger-button:hover {
+    -fx-background-color: -error-bg;
+}
+
+/* ---------- Text inputs ---------- */
+
+.text-field, .text-area, .password-field, .combo-box, .date-picker {
+    -fx-background-color: -surface;
+    -fx-border-color: -border;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 7 10 7 10;
+    -fx-font-size: 13px;
+    /* Without an explicit text-fill here, typed/entered text falls back to
+       JavaFX's default color instead of following the theme - on the dark
+       -surface background used in dark mode that text becomes unreadable. */
+    -fx-text-fill: -text-dark;
+    -fx-prompt-text-fill: -text-muted;
+}
+.text-field:focused, .text-area:focused, .password-field:focused,
+.combo-box:focused, .date-picker:focused {
+    -fx-border-color: -accent;
+    -fx-effect: dropshadow(gaussian, rgba(42,80,144,0.25), 5, 0.3, 0, 0);
+}
+.text-area .content {
+    -fx-background-color: -surface;
+    -fx-background-radius: 4px;
+}
+.text-area .content .text {
+    -fx-fill: -text-dark;
+}
+
+/* ComboBox's displayed value and its dropdown popup both render through
+   list-cells that define their own default text color, which does not
+   automatically pick up -text-dark - style them explicitly. */
+.combo-box .list-cell {
+    -fx-text-fill: -text-dark;
+    -fx-background-color: transparent;
+}
+.combo-box-popup .list-view {
+    -fx-background-color: -surface;
+    -fx-border-color: -border;
+}
+.combo-box-popup .list-cell {
+    -fx-text-fill: -text-dark;
+    -fx-background-color: -surface;
+}
+.combo-box-popup .list-cell:filled:hover,
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -text-dark;
+}
+
+/* ---------- Tables & lists ---------- */
+
+.app-table, .app-list {
+    -fx-background-color: -surface;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-text-fill: -text-dark;
+}
+.app-table .column-header-background {
+    -fx-background-color: -primary-light;
+    -fx-background-radius: 8px 8px 0 0;
+}
+.app-table .column-header .label {
+    -fx-text-fill: -primary;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.app-table .table-row-cell {
+    -fx-border-color: transparent transparent -border transparent;
+    -fx-text-fill: -text-dark;
+}
+.app-table .table-row-cell:odd {
+    -fx-background-color: -bg;
+}
+.app-table .table-cell {
+    /* Row/cell text otherwise falls back to JavaFX's default text color,
+       which ignores the custom -bg/-surface backgrounds used here and goes
+       unreadable against the dark row background in dark mode. */
+    -fx-text-fill: -text-dark;
+}
+.app-table .table-row-cell:selected,
+.app-table .table-row-cell:selected .table-cell {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -text-dark;
+}
+.app-table .placeholder .label {
+    -fx-text-fill: -text-muted;
+}
+.app-list .list-cell {
+    -fx-padding: 8 10 8 10;
+    -fx-text-fill: -text-dark;
+}
+.app-list .list-cell:filled:selected {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -text-dark;
+}
+.app-list .list-cell:filled:hover {
+    -fx-background-color: derive(-primary-light, 20%);
+}
+
+/* ---------- Analysis / info boxes ---------- */
+
+.analysis-box {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -text-dark;
+    -fx-padding: 14;
+    -fx-background-radius: 8px;
+    -fx-font-size: 13px;
+}
+
+/* ---------- Filter bars (Records / Documents search & filter) ---------- */
+
+.filter-bar {
+    -fx-background-color: -bg;
+    -fx-background-radius: 8px;
+    -fx-padding: 10;
+    -fx-border-color: -border;
+    -fx-border-radius: 8px;
+}
+
+/* ---------- Scrollable view wrapper ----------
+ * Wraps a screen's root view-card in a ScrollPane so nothing at the bottom
+ * (status labels, buttons) gets clipped when the window is shorter than the
+ * content - e.g. many documents/records, or a maximized window on a screen
+ * with limited vertical space. Transparent so it doesn't add a second
+ * background box behind the view-card's own background. */
+.content-scroll, .content-scroll .viewport {
+    -fx-background-color: transparent;
+}
+.content-scroll {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* ---------- Recent record cards (Overview dashboard) ---------- */
+
+.record-card {
+    -fx-background-color: -bg;
+    -fx-background-radius: 8px;
+    -fx-alignment: center-left;
+}
+.record-card:hover {
+    -fx-background-color: derive(-bg, -4%);
+}
+
+/* ---------- Profile tiles (used on the Overview screen) ---------- */
+
+.profile-grid {
+    -fx-padding: 4 0 4 0;
+}
+.profile-tile {
+    -fx-background-color: -bg;
+    -fx-background-radius: 8px;
+    -fx-padding: 12 16 12 16;
+    -fx-min-width: 150;
+}
+.profile-tile-label {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-muted;
+}
+.profile-tile-value {
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -text-dark;
+}

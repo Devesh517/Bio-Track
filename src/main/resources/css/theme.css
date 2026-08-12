@@ -1,0 +1,92 @@
+/*
+ * theme.css - Base color palette, typography, and shared foundations.
+ * Keeps the app's original navy identity (#1a3c6e / #2a5090) as the
+ * single source of truth, referenced by name from the other stylesheets.
+ */
+
+.root {
+    -primary: #1a3c6e;
+    -primary-hover: #2a5090;
+    -primary-light: #eef3fa;
+    -accent: #2a5090;
+    -text-dark: #1f2937;
+    -text-muted: #6b7280;
+    -border: #e2e6ec;
+    -surface: #ffffff;
+    -bg: #f5f6f8;
+    -success: #15803d;
+    -warning: #b45309;
+    -error: #b91c1c;
+    -error-bg: #fef2f2;
+    -radius-sm: 4px;
+    -radius-md: 8px;
+    -radius-lg: 12px;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: -bg;
+    -fx-text-fill: -text-dark;
+}
+
+.app-title {
+    -fx-text-fill: -primary;
+    -fx-font-weight: bold;
+}
+
+.app-subtitle {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 13px;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -primary;
+}
+
+.subsection-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-muted;
+    -fx-padding: 8 0 0 0;
+}
+
+.muted-text {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 13px;
+}
+
+.error-label {
+    -fx-text-fill: -error;
+    -fx-font-size: 12px;
+}
+
+/* Generic content wrapper used by every screen for consistent padding/card feel */
+.view-card {
+    -fx-background-color: -surface;
+    -fx-background-radius: 12px;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(26,60,110,0.08), 10, 0, 0, 2);
+}
+
+/* Standard label above a field in forms */
+.label {
+    -fx-text-fill: -text-dark;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+/* Severity badges (Add Record results, Overview recent-records list).
+   Theme-aware replacement for the hardcoded colors that used to be set
+   directly in Java via setTextFill() - those never adapted for dark mode. */
+.severity-normal {
+    -fx-text-fill: -success;
+    -fx-font-weight: 600;
+}
+.severity-warning {
+    -fx-text-fill: -warning;
+    -fx-font-weight: 600;
+}
+.severity-critical {
+    -fx-text-fill: -error;
+    -fx-font-weight: 600;
+}

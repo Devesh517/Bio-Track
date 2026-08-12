@@ -1,0 +1,51 @@
+/*
+ * login.css - The login / registration screen.
+ */
+
+.auth-screen {
+    -fx-background-color: -bg;
+}
+
+.auth-card {
+    -fx-background-color: -surface;
+    -fx-background-radius: 12px;
+    -fx-padding: 6;
+    -fx-effect: dropshadow(gaussian, rgba(26,60,110,0.12), 18, 0, 0, 4);
+}
+
+.auth-tabs .tab-header-area .tab-header-background {
+    -fx-background-color: -surface;
+    -fx-background-radius: 12px 12px 0 0;
+}
+.auth-tabs .tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 10 16 10 16;
+}
+.auth-tabs .tab .tab-label {
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+.auth-tabs .tab:selected .tab-label {
+    -fx-text-fill: -primary;
+}
+.auth-tabs .tab:selected {
+    -fx-border-color: transparent transparent -primary transparent;
+    -fx-border-width: 0 0 2 0;
+}
+.auth-tabs .tab-content-area {
+    -fx-background-color: -surface;
+    -fx-background-radius: 0 0 12px 12px;
+}
+
+.auth-form {
+    -fx-background-color: -surface;
+}
+
+.auth-scroll, .auth-scroll .viewport {
+    -fx-background-color: -surface;
+}
+.auth-scroll {
+    -fx-border-color: transparent;
+}
